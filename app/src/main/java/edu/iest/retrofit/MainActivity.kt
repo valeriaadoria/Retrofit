@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import edu.iest.retrofit.models.ImageRandom
+import edu.iest.retrofit.models.ListBreed
 import edu.iest.retrofit.network.API
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,7 +29,27 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.option_menu_list_Images){
             Toast.makeText(this,"OPTION menu 1",Toast.LENGTH_SHORT).show()
+            val apiCall = API().crearServicioAPI()
+            apiCall.listaImagenesDePerrosPorRaza("hound").enqueue(object : Callback<ListBreed>{
+                override fun onResponse(call: Call<ListBreed>, response: Response<ListBreed>) {
+                    //muestra logica
+                    val dogs= response.body()?.message // array
+                    Log.d("PRUEBAS", "Status de la respuesta {$response.body()?.status}")
+                    if(dogs != null){
+                        for (dog in dogs){
+                            Log.d("PRUEBAS","Perro es $dog")
+                        }
+                    }
+
+                }
+
+                override fun onFailure(call: Call<ListBreed>, t: Throwable) {
+
+                }
+
+            })
         }
+
         return super.onOptionsItemSelected(item)
     }
 

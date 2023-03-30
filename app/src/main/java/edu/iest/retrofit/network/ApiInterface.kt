@@ -10,7 +10,7 @@ interface ApiInterface {
     @GET("breeds/image/random")
     fun imagenAleatoria(): Call<ImageRandom>
 
-    @GET("breeds/{raza}/images")
+    @GET("breed/{raza}/images")
     fun listaImagenesDePerrosPorRaza(@Path("raza")raza: String): Call<ListBreed>
     //si raza = "chihuahua url seria  breed/chihuahua/imagenes
     //si raza = "pastor url seria  breed/pastor/imagenes
