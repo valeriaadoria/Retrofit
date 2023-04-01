@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.option_menu_list_Images){
+        if(item.itemId == R.id.option_menu_list_images){
             Toast.makeText(this,"OPTION menu 1",Toast.LENGTH_SHORT).show()
             val apiCall = API().crearServicioAPI()
             apiCall.listaImagenesDePerrosPorRaza("hound").enqueue(object : Callback<ListBreed>{
