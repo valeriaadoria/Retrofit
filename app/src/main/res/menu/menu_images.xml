@@ -7,9 +7,4 @@
         android:icon="@drawable/ic_baseline_menu_24"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/option_menu_list_Images1"
-        android:title="@string/api"
-        android:icon="@drawable/ic_baseline_menu_24"
-        app:showAsAction="ifRoom"/>
 </menu>
